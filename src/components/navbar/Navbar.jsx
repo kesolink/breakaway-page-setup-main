@@ -71,12 +71,12 @@ const Navbar = ({ toggleSidebar }) => {
         <img src={spkLogo} className="logo" alt="" />
             <ul className=" ">
             <Link className="lists" to="/" onClick={()=> setNav(!nav)}><span><TiHomeOutline size={20} /></span><li className="">Home</li></Link>
-            <Link className="lists" to="/communities" onClick={()=> setNav(!nav)}><span><SiCompilerexplorer size={20} /></span><li className="">Explore Communities</li></Link>
+            <Link className="lists" to="/communities" onClick={()=> setNav(!nav)}><span><SiCompilerexplorer size={20} /></span><li className="">Explore </li></Link>
             <Link className="lists" to="/community-create" onClick={()=> setNav(!nav)}><span><CgCommunity size={20} /></span><li className="">Create Community</li></Link>
             <Link className="lists" to="/about" onClick={()=> setNav(!nav)}><span><FaAccessibleIcon size={20} /></span><li>About</li></Link>
             {!auth.isAuthenticated ? (<Link to="/login" onClick={()=> setNav(!nav)}><button className="btn-side">Login</button></Link>) : ""}
             <div className="social-icons">
-            <BsDiscord /> <FaTelegramPlane />
+            <BsDiscord size={20} /> <FaTelegramPlane size={20}  />
             </div>
             </ul>
         </div>
