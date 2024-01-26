@@ -4,6 +4,8 @@ import { getCommunities, subscribe, getCommunity } from "../api/hive";
 import "./communities.scss";
 import Loader from "../components/loader/Loader";
 import { gridIcon, listView } from "../icons/svg";
+import { HiUsers } from "react-icons/hi";
+import { FaArrowUpRightDots, FaArrowUpShortWide  } from "react-icons/fa6";
 
 const Com = () => {
   const [communityLists, setCommunityLists] = useState([]);
@@ -154,13 +156,6 @@ const Com = () => {
                         {c.title}
                       </Link>
                       <span className="about">{c.about}</span>
-                      <div className="community-info">
-                        <span>{c.subscribers} members</span>
-                        <span>|</span>
-                        <span>{c.num_pending} Posts</span>
-                        <span>|</span>
-                        <span>{c.num_authors} posters</span>
-                      </div>
                       <div className="admins-wrapper">
                         <span>Admin:</span>
                         <div className="admins">
@@ -170,6 +165,23 @@ const Com = () => {
                             </div>
                           ))}
                         </div>
+                      </div>
+                      <div className="community-info">
+                        <div className="center-items">
+                          <span className="">{c.subscribers}</span> <span className="info-icons"><HiUsers size={20} /></span>
+                        </div>
+                        <div className="center-items">
+                          <span>{c.num_pending}</span> <span className="info-icons"><FaArrowUpRightDots /></span>
+                        </div>
+                        <div className="center-items">
+                          <span>{c.num_authors}</span> <span className="info-icons"><FaArrowUpShortWide /></span>
+                        </div>
+
+                        {/* <span>{c.subscribers} members</span>
+                        <span>|</span>
+                        <span>{c.num_pending} Posts</span>
+                        <span>|</span>
+                        <span>{c.num_authors} posters</span> */}
                       </div>
                     </div>
                     </div>
