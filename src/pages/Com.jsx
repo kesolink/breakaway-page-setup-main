@@ -143,19 +143,22 @@ const Com = () => {
             </div>
             <div className="community-box">
               {communityLists.map((c, i) => (
-                <div className="box-container" key={i}>
+                <div className="box-container " key={i}>
                   <div className="box">
-                    <div className="box-wrap-left">
+                    <div className="box-wrap-left ">
+                      {/* <div className="img-cover"> */}
                     <img
                       className="pro-img"
                       src={`https://images.hive.blog/u/${c.name}/avatar`}
                       alt=""
                     />
+                    {/* </div> */}
                     <div className="box-left">
                       <Link className="title" to={`/community/hive-${c.id}`}>
                         {c.title}
                       </Link>
-                      <span className="about">{c.about}</span>
+                       <span className="about">{c.about}</span> 
+                       <span className="about-phone">{c.about.split(' ').slice(0, 100).join(' ')}</span>           
                       <div className="admins-wrapper">
                         <span>Admin:</span>
                         <div className="admins">

@@ -42,33 +42,71 @@
     border-radius: 7px;
     margin-bottom: 30px;
     padding: 10px 4px;
+    @include respond(phone) {
+        // padding: 0px 20px;
+    }
 }
 .box-wrap-left{
     display: flex;
     align-items: center;
     gap: 20px;
     @include respond(phone) {
+        display: flex;
+        flex-direction: column;
         gap: 10px;
         
       }
 }
+
 .pro-img{
     width: 150px;
     border-radius: 10px;
+    @include respond(phone) {
+        width: 100%;
+        border-radius: 2px;
+        
+        
+    }
 }
 .box-left{
     display: flex;
     flex-direction: column;
     padding-top: 7px;
+    @include respond(phone) {
+        padding: 0px 10px; 
+    }
 }
 .title{
     font-size: 22px;
     margin-bottom: 7px;
+    @include respond(phone) {
+        font-size: 16px;
+    }
+
 }
 .about{
     width: fit-content;
     font-size: 15px;
     margin-bottom: 3px;
+    color: #333;
+    font-size: 14.4px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    @include respond(phone) {
+        display: none;
+      }
+    
+}
+.about-phone{
+    @include respond(desktop) {
+        display: none;
+        
+      }
+      @include respond(tab) {
+        display: none;
+        
+      }
 }
 .community-info{
     margin-top: 20px;
