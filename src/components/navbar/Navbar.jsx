@@ -45,10 +45,10 @@ const Navbar = ({ toggleSidebar }) => {
     <nav className="navbar">
       <img src={spkLogo} className="logo" alt="" />
         <ul className="links">
-            <Link to="/"><li className="">Home</li></Link>
-            <Link to="/communities"><li className="">Explore Communities</li></Link>
-            <Link to="/community-create"><li className="">Create Community</li></Link>
-            <Link to="/about"><li>About</li></Link>
+            <Link className="lists-1"  to="/"><li className="">Home</li></Link>
+            <Link className="lists-1" to="/communities"><li className="">Explore Communities</li></Link>
+            <Link className="lists-1" to="/community-create"><li className="">Create Community</li></Link>
+            <Link className="lists-1" to="/about"><li>About</li></Link>
             
         </ul>
         <div className="btn-search-wrap">
@@ -57,7 +57,7 @@ const Navbar = ({ toggleSidebar }) => {
           placeholder="search" />
           <IoSearch />
         </div>
-        {!auth.isAuthenticated ? (<button className="btn-login">Login</button>) : ""} 
+        {!auth.isAuthenticated ? (<button className="btn-login bg-btn">Login</button>) : ""} 
 
         </div>
 
@@ -67,7 +67,7 @@ const Navbar = ({ toggleSidebar }) => {
             {!nav ? <AiOutlineClose /> : <AiOutlineMenu  size={20} /> }
             
         </div>
-        <div className={!nav ? "side-nav" : "side-nav-else"}>
+        <div className={!nav ? "side-nav bg-light" : "side-nav-else"}>
         <img src={spkLogo} className="logo" alt="" />
             <ul className=" ">
             <Link className="lists" to="/" onClick={()=> setNav(!nav)}><span><TiHomeOutline size={20} /></span><li className="">Home</li></Link>

@@ -17,6 +17,7 @@ import { useDispatch } from "react-redux";
 import { getAccount } from "./api/hive";
 import "./App.scss";
 
+
 function App() {
   const { userData } = useSelector((state) => state.user);
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
