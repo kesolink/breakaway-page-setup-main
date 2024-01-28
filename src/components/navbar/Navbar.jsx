@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./navbar.scss";
 import { useSelector } from "react-redux";
-import spkLogo from "../../assets/spkLogo.svg";
+import spkLogo from "../../assets/spk-logo-white.svg";
 import { FaBars } from "react-icons/fa";
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 import { TiHomeOutline } from "react-icons/ti";
@@ -46,7 +46,7 @@ const Navbar = ({ toggleSidebar }) => {
       <img src={spkLogo} className="logo" alt="" />
         <ul className="links">
             <Link className="lists-1"  to="/"><li className="">Home</li></Link>
-            <Link className="lists-1" to="/communities"><li className="">Explore Communities</li></Link>
+            <Link className="lists-1" to="/communities"><li className="">Explore </li></Link>
             <Link className="lists-1" to="/community-create"><li className="">Create Community</li></Link>
             <Link className="lists-1" to="/about"><li>About</li></Link>
             

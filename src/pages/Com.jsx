@@ -175,21 +175,21 @@ const Com = () => {
                         <div className="community-info">
                           <div className="info-left">
                             <div className="center-items">
-                              <span className="">{c.subscribers}</span>{" "}
+                              <span className="info-num">{c.subscribers}</span>{" "}
                               <span className="info-icons">
-                                <HiUsers size={20} />
+                                <HiUsers size={14} />
                               </span>
                             </div>
                             <div className="center-items">
-                              <span>{c.num_pending}</span>{" "}
+                              <span className="info-num">{c.num_pending}</span>{" "}
                               <span className="info-icons">
-                                <FaArrowUpRightDots />
+                                <FaArrowUpRightDots  size={14}/>
                               </span>
                             </div>
                             <div className="center-items">
-                              <span>{c.num_authors}</span>{" "}
+                              <span className="info-num">{c.num_authors}</span>{" "}
                               <span className="info-icons">
-                                <FaArrowUpShortWide />
+                                <FaArrowUpShortWide size={14} />
                               </span>
                             </div>
                           </div>
