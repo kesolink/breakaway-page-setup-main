@@ -1,3 +1,4 @@
+@import "../mixins.scss";
 .landing-page-wrap{
   max-width: 1200px;
   margin-left: auto;
@@ -12,6 +13,9 @@
     font-size: 60px;
     margin-bottom: 30px;
     padding-top: 70px;
+    @include respond(phone) {
+      font-size: 30px;
+    }
     
   }
   p{
@@ -21,6 +25,11 @@
     text-align: center;
     margin: 0px 200px;
     margin-bottom: 12px;
+    @include respond(phone) {
+      font-size: 20px;
+      width: 100%;
+      margin-bottom: 20px;
+    }
 
   }
   .btn-hero{
@@ -29,6 +38,11 @@
     font-size: 18px;
     font-weight: 900;
     margin-bottom: 40px;
+    @include respond(phone) {
+      padding: 12px 50px;
+      line-height: 1.8rem;
+      
+    }
 
   }
 }
@@ -51,10 +65,106 @@
 }
 
 // **************************What-Section---Satart****************************************
+.what-section{
+  // height: 70vh;
+}
+.what-wrap{
+  .hero-text{
+    text-align: center;
+    font-size: 50px;
+    margin-bottom: 50px;
+    margin-top: 70px;
+  }
+}
+.box-wrap{
+  // padding: 30px 12px;
+  display: flex;
+  gap: 30px;
+  @include respond(phone) {  
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .box{
+    padding: 70px 12px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 12px; 
+    border-radius: 20px;
+    
+    p{
+      margin-bottom: 20px;
+      font-size: 22px;
+        font-weight: 600;
+    }
+
+    .text-wrap{
+      display: flex;
+      align-items: center;
+      h1{
+        font-size: 22px;
+        font-weight: 700;
+        color: rgb(208, 214, 224);
+      }
+    }
+  } 
+}
+// *********************Live-section-css****************************
+.live-section{
+  // height: 90vh;
+
+.live-wraper{
+  display: flex;
+  gap: 20px;
+  @include respond(phone) {  
+    display: flex;
+    flex-direction: column;
+  }
+  .live-left{
+    width: 50%;
+    @include respond(phone) {  
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h1{
+      font-size: 50px;
+      margin-bottom: 28px;
+    }
+    p{
+      font-size: 20px;
+      margin-bottom: 28px;
+      line-height: 1.2em;
+      font-weight: 500;
+      @include respond(phone) {
+        text-align: center;
+      }
+    }
+    button{
+      padding: 10px 30px;
+      font-size: 16px;
+      border-radius: 20px;
+      @include respond(phone) {
+        margin-bottom: 60px;
+      }
+    }
+  }
+  .live-right{
+    width: 50%;
+    @include respond(phone) {  
+      width: 100%;
+    }
+    img{
+      border-radius: 20px;
+      width: 100%;
+    }
+  }
+}
 
 
-
-
+}
 
 
 

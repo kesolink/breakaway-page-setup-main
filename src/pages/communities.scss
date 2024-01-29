@@ -160,8 +160,7 @@
 .community-info{
     display: flex;
     margin-bottom: 7px;
-    @include respond(phone) {  
-      }
+    
 }
 .info-num{
     font-size: 14px;

@@ -52,20 +52,54 @@ const LandingPage = () => {
                         <img className="caro-img"  src={speak} alt="" /> <span>3speak</span>
                     </div>
         </Marquee>
-
-
-        
-
       </header>
+{/* ********************what-section-start***********************************       */}
       <section className="what-section">
-        <div>
-            <h1>Are you struggling with?</h1>
+        <div className="what-wrap">
+            <h1 className="hero-text">Are you struggling with?</h1>
+            <div className="box-wrap">
             <div className="box" >
-                <h1> <span><MdIntegrationInstructions /></span>integration</h1>
+                <div className="text-wrap">
+                <span><MdIntegrationInstructions /></span><h1> integration</h1>
+                </div>
                 <p>"User can create community in just one button without writing code"</p>
+            </div>
+            <div className="box" >
+                <div className="text-wrap">
+                <span><MdIntegrationInstructions size={25} /></span><h1> integration</h1>
+                </div>
+                <p>"User can create community in just one button without writing code"</p>
+            </div>
+            <div className="box" >
+                <div className="text-wrap">
+                <span><MdIntegrationInstructions /></span><h1> integration</h1>
+                </div>
+                <p>"User can create community in just one button without writing code"</p>
+            </div>
+            <div className="box" >
+                <div className="text-wrap">
+                <span><MdIntegrationInstructions /></span><h1> integration</h1>
+                </div>
+                <p>"User can create community in just one button without writing code"</p>
+            </div>
             </div>
         </div>
       </section>
+     {/* ********************what-section-end***********************************       */}
+     {/* ********************live-section-end***********************************       */}
+     <section className="live-section">
+        <div className="live-wraper">
+            <div className="live-left">
+                <h1>Live Project</h1>
+                <p>Automate feature requests and bug reports. Share live development updates and help your clients understand ongoing projects with our dynamic 'In Progress' section. This allows for real-time insights into the progress of current features and bugs, helping to keep projects on schedule.</p>
+                <button>create your community</button>
+            </div>
+            <div className="live-right">
+                <img src={community} alt="" />
+            </div>
+
+        </div>
+     </section>
 
     </div>
 
