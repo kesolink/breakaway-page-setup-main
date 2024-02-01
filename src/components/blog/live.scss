@@ -1,5 +1,6 @@
 @import "../../mixins.scss";
 .live-wraper{
+  
     display: flex;
     gap: 20px;
     @include respond(phone) {  

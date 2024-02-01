@@ -1,6 +1,11 @@
 @import "../../mixins.scss";
 .what-wrap{
-  height: 90vh;
+  height: 100vh;
+  max-height: max-content;
+  @include respond(phone) {  
+    margin-bottom: 100px;
+   height: 1000px !important;
+  }
     .hero-text{
       text-align: center;
       font-size: 50px;
