@@ -1,6 +1,7 @@
 import React from 'react'
 import "./hero.scss"
 import { motion } from "framer-motion"
+import fadeIn from '../../variants';
 import Marquee from "react-fast-marquee";
 import speak from "../../assets/3speak.png"
 import deep from "../../assets/deep-dive.jfif"
@@ -12,14 +13,17 @@ import chain from "../../assets/chain-art.jfif"
 
 
 export default function Hero() {
+    
   return (
     <div>
         <header className="hero-section">
         <div className="hero-wrap"> 
-        <motion.h1 variants={fadeIn('up', 0.3)} initial='hidden' whileInView={'show'} viewport={{once: false, amout: 0.7}}>Breakaway Commmunity</motion.h1>
-        <p>A tokenised content community connected to a Web3 decentralised infrastructure on SPK Network </p>
-        <button className="btn-hero glo-btnc">create your community</button>
-        <button className="glo-btnc phone-text-btn">create community</button>
+        <motion.h1 variants={fadeIn('up', 0.3)} initial='hidden' whileInView={'show'} viewport={{ once: false, amount: 0.7 }}>Breakaway Community</motion.h1>      
+        <motion.p variants={fadeIn('up', 0.4)} initial='hidden' whileInView={'show'} viewport={{ once: false, amount: 0.7 }}>A tokenised content community connected to a Web3 decentralised infrastructure on SPK Network </motion.p>
+        {/* < motion.button variants={fadeIn('up', 0.5)} initial='hidden' whileInView={'show'} viewport={{ once: false, amount: 0.7 }} className="btn-hero glo-btnc">create your community</> */}
+        {/* < motion.button variants={fadeIn('up', 0.5)} initial='hidden' whileInView={'show'} viewport={{ once: false, amount: 0.7 }} className="glo-btnc phone-text-btn">create community</> */}
+        <motion.button variants={fadeIn('up', 0.3)} initial='hidden' whileInView='show' viewport={{ once: false, amount: 0.7 }} className="btn-hero glo-btnc">create your community</motion.button>
+        <motion.button variants={fadeIn('up', 0.3)} initial='hidden' whileInView='show' viewport={{ once: false, amount: 0.7 }} className="glo-btnc phone-text-btn">create community</motion.button>
         </div>
 
         <Marquee pauseOnHover gradient gradientColor={""} className="carousel">
