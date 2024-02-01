@@ -1,106 +1,19 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
-import community from "../assets/community.png";
-import communitySetupSteps from "../constants/community-steps";
+// import { Link } from "react-router-dom";
+// import communitySetupSteps from "../constants/community-steps";
 import "./landing-page.scss";
-import Marquee from "react-fast-marquee";
-import speak from "../assets/3speak.png"
-import deep from "../assets/deep-dive.jfif"
-import Gem from "../assets/Gem.png"
-import leo from "../assets/Leo.png"
-import life from "../assets/lifestyle.png"
-import chain from "../assets/chain-art.jfif"
-import { MdIntegrationInstructions } from "react-icons/md";
+import Hero from "../components/blog/Hero";
+import What from "../components/blog/What";
+import Live from "../components/blog/Live.jsx";
 
 const LandingPage = () => {
   useEffect(() => {}, []);
   return (
     <div className="landing-page-wrap">
-      <header className="hero-section">
-        <div className="hero-wrap"> 
-        <h1 >Breakaway Commmunity</h1>
-        <p>A tokenised content community connected to a Web3 decentralised infrastructure on SPK Network </p>
-        <button className="btn-hero glo-btnc">create your community</button>
-        </div>
-
-        <Marquee pauseOnHover gradient gradientColor={""} className="carousel">
-              <div className="carousel-wrap">
-                        <img className="caro-img"  src={speak} alt="" /> <span>3speak</span>
-                    </div>
-                    <div className=" carousel-wrap">
-                        <img className="caro-img"  src={chain} alt="" /> <span>3speak</span>
-                    </div>
-                    <div  className=" carousel-wrap">
-                        <img className="caro-img"  src={leo} alt=""  /> <span>3speak</span>
-                    </div>
-                    <div className=" carousel-wrap">
-                        <img className="caro-img" src={life} alt=""  /> <span>3speak</span>
-                    </div>
-                    <div className=" carousel-wrap">
-                        <img className="caro-img"  src={deep} alt="" /> <span>3speak</span>
-                    </div>
-                    <div className="carousel-wrap">
-                        <img className="caro-img"  src={Gem} alt="" /> <span>3speak</span>
-                    </div>
-                    <div className="carousel-wrap">
-                        <img className="caro-img"  src={leo} alt="" /> <span>3speak</span>
-                    </div>
-                    <div className="carousel-wrap">
-                        <img className="caro-img"  src={life} alt="" /> <span>3speak</span>
-                    </div>
-                    <div className="carousel-wrap">
-                        <img className="caro-img"  src={speak} alt="" /> <span>3speak</span>
-                    </div>
-        </Marquee>
-      </header>
-{/* ********************what-section-start***********************************       */}
-      <section className="what-section">
-        <div className="what-wrap">
-            <h1 className="hero-text">Are you struggling with?</h1>
-            <div className="box-wrap">
-            <div className="box" >
-                <div className="text-wrap">
-                <span><MdIntegrationInstructions /></span><h1> integration</h1>
-                </div>
-                <p>"User can create community in just one button without writing code"</p>
-            </div>
-            <div className="box" >
-                <div className="text-wrap">
-                <span><MdIntegrationInstructions size={25} /></span><h1> integration</h1>
-                </div>
-                <p>"User can create community in just one button without writing code"</p>
-            </div>
-            <div className="box" >
-                <div className="text-wrap">
-                <span><MdIntegrationInstructions /></span><h1> integration</h1>
-                </div>
-                <p>"User can create community in just one button without writing code"</p>
-            </div>
-            <div className="box" >
-                <div className="text-wrap">
-                <span><MdIntegrationInstructions /></span><h1> integration</h1>
-                </div>
-                <p>"User can create community in just one button without writing code"</p>
-            </div>
-            </div>
-        </div>
-      </section>
-     {/* ********************what-section-end***********************************       */}
-     {/* ********************live-section-end***********************************       */}
-     <section className="live-section">
-        <div className="live-wraper">
-            <div className="live-left">
-                <h1>Live Project</h1>
-                <p>Automate feature requests and bug reports. Share live development updates and help your clients understand ongoing projects with our dynamic 'In Progress' section. This allows for real-time insights into the progress of current features and bugs, helping to keep projects on schedule.</p>
-                <button>create your community</button>
-            </div>
-            <div className="live-right">
-                <img src={community} alt="" />
-            </div>
-
-        </div>
-     </section>
-
+        <Hero />
+        <What />
+        <Live />
+       
     </div>
 
     // <div className="landing-page">

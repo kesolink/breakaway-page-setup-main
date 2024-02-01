@@ -56,6 +56,7 @@ function App() {
           <Routes>
           <Route path="/communities" element={<Com />} />
             <Route path="/" element={<Com />} />
+            {/* <Route path="/" element={<Communities />} /> */}
             <Route path="/about" element={<LandingPage />} />
             <Route path="/login" element={<Login />} />
             {/* <Route path="/communities" element={<Communities />} /> */}

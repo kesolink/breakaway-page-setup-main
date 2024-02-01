@@ -11,6 +11,9 @@ import { CgCommunity } from "react-icons/cg";
 import { FaAccessibleIcon, FaTelegramPlane } from "react-icons/fa";
 import { BsDiscord } from "react-icons/bs";
 import { IoSearch } from "react-icons/io5";
+import { MdOutlineWidgets } from "react-icons/md";
+import { TbMilitaryRank } from "react-icons/tb";
+import { IoPeopleCircleSharp } from "react-icons/io5";
 
 
 const Navbar = ({ toggleSidebar }) => {
@@ -57,7 +60,7 @@ const Navbar = ({ toggleSidebar }) => {
           placeholder="search" />
           <IoSearch />
         </div>
-        {!auth.isAuthenticated ? (<button className="btn-login bg-btn">Login</button>) : ""} 
+        {!auth.isAuthenticated ? (<Link to="/login" onClick={()=> setNav(!nav)}><button className="btn-login bg-btn">Login</button></Link>) : ""} 
 
         </div>
 
@@ -74,11 +77,26 @@ const Navbar = ({ toggleSidebar }) => {
             <Link className="lists" to="/communities" onClick={()=> setNav(!nav)}><span><SiCompilerexplorer size={20} /></span><li className="">Explore </li></Link>
             <Link className="lists" to="/community-create" onClick={()=> setNav(!nav)}><span><CgCommunity size={20} /></span><li className="">Create Community</li></Link>
             <Link className="lists" to="/about" onClick={()=> setNav(!nav)}><span><FaAccessibleIcon size={20} /></span><li>About</li></Link>
-            {!auth.isAuthenticated ? (<Link to="/login" onClick={()=> setNav(!nav)}><button className="btn-side">Login</button></Link>) : ""}
-            <div className="social-icons">
-            <BsDiscord size={20} /> <FaTelegramPlane size={20}  />
-            </div>
+            <hr />
             </ul>
+            <h1 className="break list">Breakaway communities</h1>
+            <div className="breakaway-wrap">
+            <div className="break-wrap list " ><span><TbMilitaryRank size={20} /></span><li>Ranking</li></div>
+            <div className="break-wrap"><span><MdOutlineWidgets size={20} /></span><li>New</li></div>
+            <div className="break-wrap"><span><IoPeopleCircleSharp size={20} /></span><li>Members</li></div>
+            <div className="search-wrap-sm-nav">
+            <input className="input-sm-nav"
+             placeholder="search" />
+             <IoSearch />
+             </div>
+             {!auth.isAuthenticated ? (<Link to="/login" onClick={()=> setNav(!nav)}><button className="btn-side">Login</button></Link>) : ""}
+             <div className="social-icons">
+             <BsDiscord size={20} /> <FaTelegramPlane size={20}  />
+            </div>
+            </div>
+
+            
+             
         </div>
 
     </nav>

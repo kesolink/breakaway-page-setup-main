@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import { getCommunities, subscribe, getCommunity } from "../api/hive";
 import "./communities.scss";
 import Loader from "../components/loader/Loader";
-import { gridIcon, listView } from "../icons/svg";
 import { HiUsers } from "react-icons/hi";
 import { FaArrowUpRightDots, FaArrowUpShortWide } from "react-icons/fa6";
+// import { gridIcon, listView } from "../icons/svg";
 
 const Com = () => {
   const [communityLists, setCommunityLists] = useState([]);
@@ -147,13 +147,13 @@ const Com = () => {
                 <div className="box-container " key={i}>
                   <div className="box">
                     <div className="box-wrap-left ">
-                      {/* <div className="img-cover"> */}
+                      <div className="img-cover">
                       <img
                         className="pro-img"
                         src={`https://images.hive.blog/u/${c.name}/avatar`}
                         alt=""
                       />
-                      {/* </div> */}
+                      </div>
                       <div className="box-left">
                         <Link className="title" to={`/community/hive-${c.id}`}>
                           {c.title}
