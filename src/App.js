@@ -7,7 +7,7 @@ import SideBar from "./components/side-bar/SideBar";
 import CreateCommunity from "./pages/CreateCommunity";
 import Login from "./pages/Login";
 import Communities from "./pages/Communities";
-import Com from "./pages/Com"
+import Communitiess from "./pages/Communitiess"
 import Community from "./pages/Community";
 import DockerSetup from "./pages/DockerSetup";
 import PrivateRoute from "./private-routes/PrivateRoutes";
@@ -54,8 +54,8 @@ function App() {
       <div className="container">
         <div className="app-container">
           <Routes>
-          <Route path="/communities" element={<Com />} />
-            <Route path="/" element={<Com />} />
+          <Route path="/communities" element={<Communitiess />} />
+            <Route path="/" element={<Communitiess />} />
             {/* <Route path="/" element={<Communities />} /> */}
             <Route path="/about" element={<LandingPage />} />
             <Route path="/login" element={<Login />} />

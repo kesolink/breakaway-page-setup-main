@@ -7,7 +7,7 @@ import { HiUsers } from "react-icons/hi";
 import { FaArrowUpRightDots, FaArrowUpShortWide } from "react-icons/fa6";
 // import { gridIcon, listView } from "../icons/svg";
 
-const Com = () => {
+const Communitiess = () => {
   const [communityLists, setCommunityLists] = useState([]);
   const [loading, setLoading] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
@@ -207,8 +207,8 @@ const Com = () => {
                                 Visit platform
                               </button>
                             ) : (
-                              <Link to="/docker-setup">
-                                Start your community
+                              <Link to="/docker-setup" >
+                                <h3 className="start">Start your community</h3>
                               </Link>
                             )}
                           </div>
@@ -246,4 +246,4 @@ const Com = () => {
   );
 };
 
-export default Com;
+export default Communitiess;

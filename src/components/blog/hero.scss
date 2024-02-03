@@ -1,6 +1,6 @@
 @import "../../mixins.scss";
 .hero-section{
-  height: 85vh;
+  height: 80vh;
   @include respond(phone) {
     height: 50vh;
   }

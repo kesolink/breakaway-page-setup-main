@@ -1,6 +1,6 @@
 @import "../../mixins.scss";
 .what-wrap{
-  height: 100vh;
+  height: 70vh;
   max-height: max-content;
   @include respond(phone) {  
     margin-bottom: 100px;
@@ -11,6 +11,9 @@
       font-size: 50px;
       margin-bottom: 50px;
       margin-top: 70px;
+      @include respond(phone) {
+        font-size: 35px;
+      }
     }
   }
   .box-wrap{

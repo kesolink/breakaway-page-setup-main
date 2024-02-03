@@ -1,5 +1,6 @@
 import React from 'react'
 import "./hero.scss"
+import 'animate.css';
 import { motion } from "framer-motion"
 import fadeIn from '../../variants';
 import Marquee from "react-fast-marquee";
@@ -18,12 +19,12 @@ export default function Hero() {
     <div>
         <header className="hero-section">
         <div className="hero-wrap"> 
-        <motion.h1 variants={fadeIn('up', 0.3)} initial='hidden' whileInView={'show'} viewport={{ once: false, amount: 0.7 }}>Breakaway Community</motion.h1>      
-        <motion.p variants={fadeIn('up', 0.4)} initial='hidden' whileInView={'show'} viewport={{ once: false, amount: 0.7 }}>A tokenised content community connected to a Web3 decentralised infrastructure on SPK Network </motion.p>
+        <h1 className="animate__animated animate__fadeInUp">Breakaway Community</h1>      
+        <p className="animate__animated animate__fadeInUp">A tokenised content community connected to a Web3 decentralised infrastructure on SPK Network </p>
         {/* < motion.button variants={fadeIn('up', 0.5)} initial='hidden' whileInView={'show'} viewport={{ once: false, amount: 0.7 }} className="btn-hero glo-btnc">create your community</> */}
         {/* < motion.button variants={fadeIn('up', 0.5)} initial='hidden' whileInView={'show'} viewport={{ once: false, amount: 0.7 }} className="glo-btnc phone-text-btn">create community</> */}
-        <motion.button variants={fadeIn('up', 0.3)} initial='hidden' whileInView='show' viewport={{ once: false, amount: 0.7 }} className="btn-hero glo-btnc">create your community</motion.button>
-        <motion.button variants={fadeIn('up', 0.3)} initial='hidden' whileInView='show' viewport={{ once: false, amount: 0.7 }} className="glo-btnc phone-text-btn">create community</motion.button>
+        <button  className="animate__animated animate__fadeInUp btn-hero glo-btnc">create your community</button>
+        <button className="animate__animated animate__fadeInUp glo-btnc phone-text-btn">create community</button>
         </div>
 
         <Marquee pauseOnHover gradient gradientColor={""} className="carousel">

@@ -172,6 +172,9 @@
     border-radius: 7px;
     width: 90%;
     margin-bottom: 10px;
+    @include respond(sm-phone) {
+      margin-top: 30px;
+    }
   }
   .social-icons{
     color: rgba(236, 226, 226, 0.748);
