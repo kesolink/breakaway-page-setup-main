@@ -5,6 +5,7 @@ import "./landing-page.scss";
 import Hero from "../components/blog/Hero";
 import What from "../components/blog/What";
 import Live from "../components/blog/Live.jsx";
+import Faq from "../components/blog/Faq.jsx";
 
 const LandingPage = () => {
   useEffect(() => {}, []);
@@ -13,6 +14,7 @@ const LandingPage = () => {
         <Hero />
         <What />
         <Live />
+        <Faq />
        
     </div>
 

@@ -7,7 +7,6 @@ import SideBar from "./components/side-bar/SideBar";
 import CreateCommunity from "./pages/CreateCommunity";
 import Login from "./pages/Login";
 import Communities from "./pages/Communities";
-import Communitiess from "./pages/Communitiess"
 import Community from "./pages/Community";
 import DockerSetup from "./pages/DockerSetup";
 import PrivateRoute from "./private-routes/PrivateRoutes";
@@ -16,7 +15,7 @@ import { setUser } from "./redux/userSlice";
 import { useDispatch } from "react-redux";
 import { getAccount } from "./api/hive";
 import "./App.scss";
-
+import Navmain from "./pages/Navmain";
 
 function App() {
   const { userData } = useSelector((state) => state.user);
@@ -41,9 +40,8 @@ function App() {
   };
 
   const shouldRenderSideBar = userData;
-  
-  useEffect(() => {
-  }, [isSidebarOpen, shouldRenderSideBar]);
+
+  useEffect(() => {}, [isSidebarOpen, shouldRenderSideBar]);
 
   return (
     <div className="App">
@@ -54,15 +52,14 @@ function App() {
       <div className="container">
         <div className="app-container">
           <Routes>
-          <Route path="/communities" element={<Communitiess />} />
-            <Route path="/" element={<Communitiess />} />
+          <Route path="/communities" element={<Communities />} />
+            <Route path="/" element={<Communities />} />
             {/* <Route path="/" element={<Communities />} /> */}
             <Route path="/about" element={<LandingPage />} />
             <Route path="/login" element={<Login />} />
             {/* <Route path="/communities" element={<Communities />} /> */}
             <Route
-              path="/community/:id"
-              element={
+              path="/community/:id" element={
                 <PrivateRoute>
                   <Community />
                 </PrivateRoute>

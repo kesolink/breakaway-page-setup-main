@@ -12,12 +12,15 @@
       flex-direction: column;
       justify-content: center;
       text-align: center;
-      padding: 30px;
+      align-items: center;
+      padding: 30px ;
       border-radius: 10px;
       width: 400px;
       border: 1px solid grey;
-      border-radius: 20px;
       box-sizing: border-box;
+      @include respond(phone) {  
+        padding: 30px 15px;
+      }
   
       .header {
         margin-bottom: 20px;
@@ -39,27 +42,30 @@
 
       .step-info{
         .info{
-            font-size: 16px;
+            font-size: 12px;
             font: bold;
             color: rgb(239, 124, 37);
+            margin-bottom: 5px;
         }
       }
   
       .form-wrapper {
         display: flex;
         flex-direction: column;
-        gap: 30px;
+        gap: 20px;
   
         input {
             padding: 10px;
             border: none;
+            width: 100%;
             border-bottom: 1px solid gray;
             outline: none;
             font-size: 14px;
             border-radius: 5px;
-            // @include respond(phone) {  
-            //   width: 90px;
-            // }
+            @include respond(phone) {  
+              align-items: center;
+              width: 250px;
+            }
           }          
   
         button {
@@ -83,5 +89,10 @@
   
 .keychain-img{
   border-radius: 7px;
+  width: 100%;
     cursor: pointer;
+    @include respond(phone) {  
+      align-items: center;
+      width: 250px;
+    }
 }

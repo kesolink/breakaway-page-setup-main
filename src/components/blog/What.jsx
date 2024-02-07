@@ -4,10 +4,12 @@ import 'animate.css';
 import { motion } from "framer-motion"
 import fadeIn from '../../variants';
 import { MdIntegrationInstructions } from "react-icons/md";
+import TrackVisibility from 'react-on-screen';
 
 export default function What() {
   return (
-    <div>
+    <TrackVisibility>
+    {({ isVisible }) => isVisible && <div>
         <div className="what-wrap">
             <h1  className="animate__animated animate__fadeInUp hero-text">Are you struggling with?</h1>
             <div  className="box-wrap">
@@ -31,12 +33,13 @@ export default function What() {
             </div>
             <div className="animate__animated animate__slideInRight box" >
                 <div className="text-wrap">
-                <span><MdIntegrationInstructions /></span><h1> integration</h1>
+                <span><MdIntegrationInstructions /></span><h1> Accessibilty</h1>
                 </div>
-                <p>"User can create community in just one button without writing code"</p>
+                <p>"Its a maze to give all users a peek into the roadmaps."</p>
             </div>
             </div>
         </div>
-    </div>
+    </div>}
+    </TrackVisibility>
   )
 }

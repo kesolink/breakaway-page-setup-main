@@ -10,16 +10,20 @@ import Gem from "../../assets/Gem.png"
 import leo from "../../assets/Leo.png"
 import life from "../../assets/lifestyle.png"
 import chain from "../../assets/chain-art.jfif"
+import TrackVisibility from 'react-on-screen';
 // import { MdIntegrationInstructions } from "react-icons/md";
 
 
 export default function Hero() {
+
+    // <TrackVisibility>
+    //  {({ isVisible }) => isVisible && <>} </TrackVisibility> 
     
   return (
     <div>
         <header className="hero-section">
         <div className="hero-wrap"> 
-        <h1 className="animate__animated animate__fadeInUp">Breakaway Community</h1>      
+         <h1 className="animate__animated animate__fadeInUp" >Breakaway Community</h1> 
         <p className="animate__animated animate__fadeInUp">A tokenised content community connected to a Web3 decentralised infrastructure on SPK Network </p>
         {/* < motion.button variants={fadeIn('up', 0.5)} initial='hidden' whileInView={'show'} viewport={{ once: false, amount: 0.7 }} className="btn-hero glo-btnc">create your community</> */}
         {/* < motion.button variants={fadeIn('up', 0.5)} initial='hidden' whileInView={'show'} viewport={{ once: false, amount: 0.7 }} className="glo-btnc phone-text-btn">create community</> */}
@@ -58,5 +62,6 @@ export default function Hero() {
         </Marquee>
       </header>
     </div>
+    
   )
 }

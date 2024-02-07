@@ -3,14 +3,16 @@ import { Link } from "react-router-dom";
 import { getCommunities, subscribe, getCommunity } from "../api/hive";
 import "./communities.scss";
 import Loader from "../components/loader/Loader";
-import { gridIcon, listView } from "../icons/svg";
+import { HiUsers } from "react-icons/hi";
+import { FaArrowUpRightDots, FaArrowUpShortWide } from "react-icons/fa6";
+// import { gridIcon, listView } from "../icons/svg";
 
 const Communities = () => {
   const [communityLists, setCommunityLists] = useState([]);
   const [loading, setLoading] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
 
-  const [selectedOption, setSelectedOption] = useState('Breakaway communities');
+  const [selectedOption, setSelectedOption] = useState("Rank");
   const [gridView, setGridView] = useState(false);
 
   const pinnedCommunitiesWebsties = {
@@ -23,29 +25,41 @@ const Communities = () => {
   const pinnedCommunities = ["hive-109272", "hive-115309", "hive-140169"];
 
   useEffect(() => {
-    setTimeout(()=> {
+    setTimeout(() => {
       fetchCommunities();
-        },3000)
-      }, [searchQuery, selectedOption]);
-  
-      
+    }, 1000);
+  }, [searchQuery, selectedOption]);
+
   const handleSelectChange = async (event) => {
     const selectedValue = event.target.value;
     setSelectedOption(selectedValue);
-  
-    if (selectedValue === 'Breakaway communities') {
-      const filteredCommunities = communityLists.filter((c) => pinnedCommunities.includes(c.name));
+
+    if (selectedValue === "Breakaway communities") {
+      const filteredCommunities = communityLists.filter((c) =>
+        pinnedCommunities.includes(c.name)
+      );
       setCommunityLists(filteredCommunities);
     } else {
-      await getCommunities("", 100, searchQuery || null,  event.target.value, "");
+      await getCommunities(
+        "",
+        100,
+        searchQuery || null,
+        event.target.value,
+        ""
+      );
     }
   };
-      
 
   const fetchCommunities = async () => {
     setLoading(true);
     try {
-      const communities = await getCommunities("", 100, searchQuery || null,  "rank", "");
+      const communities = await getCommunities(
+        "",
+        100,
+        searchQuery || null,
+        "rank",
+        ""
+      );
 
       const pinnedCommunitiesData = await Promise.all(
         pinnedCommunities.map(async (communityId) => {
@@ -66,12 +80,15 @@ const Communities = () => {
         })
       );
 
-      const mergedCommunities = (!searchQuery
-        ? [...pinnedCommunitiesData, ...communities]
-        : [...communities]) || []
+      const mergedCommunities =
+        (!searchQuery
+          ? [...pinnedCommunitiesData, ...communities]
+          : [...communities]) || [];
 
-      if (selectedOption === 'Breakaway communities') {
-        const filteredCommunities = mergedCommunities.filter((c) => pinnedCommunities.includes(c.name));
+      if (selectedOption === "Breakaway communities") {
+        const filteredCommunities = mergedCommunities.filter((c) =>
+          pinnedCommunities.includes(c.name)
+        );
         setCommunityLists(filteredCommunities);
       } else {
         setCommunityLists(mergedCommunities);
@@ -89,105 +106,144 @@ const Communities = () => {
   };
 
   return (
-    <div className="communities setup">
-    <div className="community-header">
-      <h1>Tokenized Breakaway Communities</h1>
-    </div>
-    <div className="search-container">
-      <input
-        className="communities-search"
-        value={searchQuery}
-        type="text"
-        placeholder="Search community"
-        onChange={handleCommunitySearch}
-      />
-    </div>
-    {loading ? (
-      <div className="communities-container">
-        <Loader />
+    <div className="communities-wrapper">
+      <div className="hero-text">
+        <h1>Tokenized Breakaway Communities</h1>
+        {/* <div className="search-wrapper">
+          <input
+            className="communities-search"
+            value={searchQuery}
+            type="text"
+            placeholder="Search community"
+            onChange={handleCommunitySearch}
+          />
+        </div> */}
       </div>
-    ) : communityLists.length > 0 ? (
-      <div className="communities-container">
-        <div className="view">
-          <span>{gridView ? listView : gridIcon}</span>
-          <h3 onClick={() => setGridView(!gridView)}>{gridView ? "List view" : "Grid view"}</h3>
-        </div>
-        <div className="community">
-          <div className="select-communities">
-            <select
-              name="communities"
-              id="communities"
-              value={selectedOption}
-              onChange={handleSelectChange}
-            >
-              <option value="Breakaway communities">Breakaway communities</option>
-              <option value="rank">Rank</option>
-              <option value="new">New</option>
-              <option value="subs">Members</option>
-            </select>
+      <div className="community-section">
+        {loading ? (
+          <div className="communities-container">
+            <Loader />
           </div>
-          <div className="community-main">
-            {communityLists.map((c, i) => (
-              <div
-                className={`${gridView ? "community-wrapper-grid" : "community-wrapper-list"}
-                    community-wrapper${c.isPinned ? " pinned-community" : ""}
-                    `}
-                key={i}
+        ) : communityLists.length > 0 ? (
+          <div className="community-wrap">
+            <div className="select-communities">
+              <select
+                className="select"
+                name="communities"
+                id="communities"
+                value={selectedOption}
+                onChange={handleSelectChange}
               >
-                <div className="left grid-top">
-                  <div className="top">
-                    <img src={`https://images.hive.blog/u/${c.name}/avatar`} alt="" />
-                    <Link to={`/community/hive-${c.id}`}>{c.title}</Link>
-                  </div>
-                  <div className="bottom">
-                    <span className="about">{c.about}</span>
-                    <div className="community-info">
-                      <span>{c.subscribers} members</span>
-                      <span>|</span>
-                      <span>{c.num_pending} Posts</span>
-                      <span>|</span>
-                      <span>{c.num_authors} posters</span>
-                    </div>
-                    <div className="admins-wrapper">
-                      <span>Admin:</span>
-                      <div className="admins">
-                        {c?.admins?.map((admin, i) => (
-                          <div key={i} className="each-admin">
-                            <span className="admin">@{admin}</span>
+                <option value="Breakaway communities">
+                  Breakaway communities
+                </option>
+                <option value="rank">Rank</option>
+                <option value="new">New</option>
+                <option value="subs">Members</option>
+              </select>
+            </div>
+            <div className="community-box">
+              {communityLists.map((c, i) => (
+                <div className="box-container " key={i}>
+                  <div className="box">
+                    <div className="box-wrap-left ">
+                      <div className="img-cover">
+                      <img
+                        className="pro-img"
+                        src={`https://images.hive.blog/u/${c.name}/avatar`}
+                        alt=""
+                      />
+                      </div>
+                      <div className="box-left">
+                        <Link className="title" to={`/community/hive-${c.id}`}>
+                          {c.title}
+                        </Link>
+                        <span className="about">{c.about}</span>
+                        <span className="about-phone">
+                          {c.about.split(" ").slice(0, 100).join(" ")}
+                        </span>
+                        <div className="admins-wrapper">
+                          <span>Admin:</span>
+                          <div className="admins">
+                            {c?.admins?.map((admin, i) => (
+                              <div key={i} className="each-admin">
+                                <span className="admin">@{admin}</span>
+                              </div>
+                            ))}
                           </div>
-                        ))}
+                        </div>
+                        <div className="community-info">
+                          <div className="info-left">
+                            <div className="center-items">
+                              <span className="info-num">{c.subscribers}</span>{" "}
+                              <span className="info-icons">
+                                <HiUsers size={14} />
+                              </span>
+                            </div>
+                            <div className="center-items">
+                              <span className="info-num">{c.num_pending}</span>{" "}
+                              <span className="info-icons">
+                                <FaArrowUpRightDots  size={14}/>
+                              </span>
+                            </div>
+                            <div className="center-items">
+                              <span className="info-num">{c.num_authors}</span>{" "}
+                              <span className="info-icons">
+                                <FaArrowUpShortWide size={14} />
+                              </span>
+                            </div>
+                          </div>
+                          <div className="btn-vist-phone">
+                            {c.isPinned ? (
+                              <button
+                                className="btn glo-btnc"
+                                onClick={() =>
+                                  window.open(
+                                    `${pinnedCommunitiesWebsties[c.name]}`,
+                                    "_blank"
+                                  )
+                                }
+                              >
+                                Visit platform
+                              </button>
+                            ) : (
+                              <Link to="/docker-setup" className="start" >
+                                <h3 className="start">Start community</h3>
+                              </Link>
+                            )}
+                          </div>
+                        </div>
                       </div>
                     </div>
+
+                    <div className="btn-wrap">
+                      {c.isPinned ? (
+                        <button
+                          className="btn glo-btnc"
+                          onClick={() =>
+                            window.open(
+                              `${pinnedCommunitiesWebsties[c.name]}`,
+                              "_blank"
+                            )
+                          }
+                        >
+                          Visit platform
+                        </button>
+                      ) : (
+                        <Link to="/docker-setup">Start your community</Link>
+                      )}
+                    </div>
                   </div>
                 </div>
-                <div className="right">
-                  {c.isPinned ? (
-                    <button
-                      onClick={() =>
-                        window.open(
-                          `${pinnedCommunitiesWebsties[c.name]}`,
-                          "_blank"
-                        )
-                      }
-                    >
-                      Visit platform
-                    </button>
-                  ) : (
-                    <Link to="/docker-setup">
-                      Start your platform for this community
-                    </Link>
-                  )}
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
+        ) : (
+          <div className="communities-container">No community found</div>
+        )}
       </div>
-    ) : (
-      <div className="communities-container">No community found</div>
-    )}
-  </div>
-  )
-}
+    </div>
+  );
+};
 
 export default Communities;
