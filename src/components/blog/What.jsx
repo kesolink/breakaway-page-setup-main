@@ -9,11 +9,11 @@ import TrackVisibility from 'react-on-screen';
 export default function What() {
   return (
     <TrackVisibility>
-    {({ isVisible }) => isVisible && <div>
-        <div className="what-wrap">
-            <h1  className="animate__animated animate__fadeInUp hero-text">Are you struggling with?</h1>
+    {({ isVisible }) => (
+        <div className={isVisible ? "animate__animated animate__fadeInUp what-wrap" : "what-wrap"}>
+            <h1  className=" hero-text">Are you struggling with?</h1>
             <div  className="box-wrap">
-            <div className="animate__animated animate__slideInLeft box" >
+            <div className={isVisible ? "animate__animated animate__slideInLeft box" : "box"} >
                 <div className="text-wrap">
                 <span><MdIntegrationInstructions /></span><h1> integration</h1>
                 </div>
@@ -39,7 +39,8 @@ export default function What() {
             </div>
             </div>
         </div>
-    </div>}
+    )
+    }
     </TrackVisibility>
   )
 }

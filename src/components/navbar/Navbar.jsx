@@ -42,11 +42,14 @@ const Navbar = ({ toggleSidebar }) => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, []);
+  }, []);<div className="toggle" onClick={handleNav}>
+  {!nav ? <AiOutlineClose /> : <AiOutlineMenu  size={20} /> }
+  
+</div>
 
   return (
     <nav className="navbar">
-      <img src={spkLogo} className="logo" alt="" />
+       <img src={spkLogo} className="logo" alt="" />
         <ul className="links">
             <Link className="lists-1"  to="/"><li className="">Home</li></Link>
             <Link className="lists-1" to="/communities"><li className="">Explore </li></Link>
@@ -55,12 +58,12 @@ const Navbar = ({ toggleSidebar }) => {
             
         </ul>
         <div className="btn-search-wrap">
-        <div className="search-wrap">
-          <input className="input"
-          placeholder="search" />
-          <IoSearch />
-        </div>
-        {!auth.isAuthenticated ? (<Link to="/login" onClick={()=> setNav(!nav)}><button className="btn-login bg-btn">Login</button></Link>) : ""} 
+         <div className="search-wrap">
+           <input className="input"
+           placeholder="search" />
+           <IoSearch />
+         </div>
+         {!auth.isAuthenticated ? (<Link to="/login" onClick={()=> setNav(!nav)}><button className="btn-login bg-btn">Login</button></Link>) : ""} 
 
         </div>
 
@@ -71,7 +74,7 @@ const Navbar = ({ toggleSidebar }) => {
             
         </div>
         <div className={!nav ? "side-nav bg-light" : "side-nav-else"}>
-        <img src={spkLogo} className="logo" alt="" />
+           <img src={spkLogo} className="logo" alt="" />
             <ul className=" ">
             <Link className="lists" to="/" onClick={()=> setNav(!nav)}><span><TiHomeOutline size={20} /></span><li className="">Home</li></Link>
             <Link className="lists" to="/communities" onClick={()=> setNav(!nav)}><span><SiCompilerexplorer size={20} /></span><li className="">Explore </li></Link>

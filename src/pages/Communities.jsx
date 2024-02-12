@@ -5,6 +5,8 @@ import "./communities.scss";
 import Loader from "../components/loader/Loader";
 import { HiUsers } from "react-icons/hi";
 import { FaArrowUpRightDots, FaArrowUpShortWide } from "react-icons/fa6";
+import { CommunityList } from "../components/communities/CommunityList";
+
 // import { gridIcon, listView } from "../icons/svg";
 
 const Communities = () => {
@@ -104,6 +106,7 @@ const Communities = () => {
   const handleCommunitySearch = (e) => {
     setSearchQuery(e.target.value);
   };
+  
 
   return (
     <div className="communities-wrapper">
@@ -144,97 +147,7 @@ const Communities = () => {
             </div>
             <div className="community-box">
               {communityLists.map((c, i) => (
-                <div className="box-container " key={i}>
-                  <div className="box">
-                    <div className="box-wrap-left ">
-                      <div className="img-cover">
-                      <img
-                        className="pro-img"
-                        src={`https://images.hive.blog/u/${c.name}/avatar`}
-                        alt=""
-                      />
-                      </div>
-                      <div className="box-left">
-                        <Link className="title" to={`/community/hive-${c.id}`}>
-                          {c.title}
-                        </Link>
-                        <span className="about">{c.about}</span>
-                        <span className="about-phone">
-                          {c.about.split(" ").slice(0, 100).join(" ")}
-                        </span>
-                        <div className="admins-wrapper">
-                          <span>Admin:</span>
-                          <div className="admins">
-                            {c?.admins?.map((admin, i) => (
-                              <div key={i} className="each-admin">
-                                <span className="admin">@{admin}</span>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                        <div className="community-info">
-                          <div className="info-left">
-                            <div className="center-items">
-                              <span className="info-num">{c.subscribers}</span>{" "}
-                              <span className="info-icons">
-                                <HiUsers size={14} />
-                              </span>
-                            </div>
-                            <div className="center-items">
-                              <span className="info-num">{c.num_pending}</span>{" "}
-                              <span className="info-icons">
-                                <FaArrowUpRightDots  size={14}/>
-                              </span>
-                            </div>
-                            <div className="center-items">
-                              <span className="info-num">{c.num_authors}</span>{" "}
-                              <span className="info-icons">
-                                <FaArrowUpShortWide size={14} />
-                              </span>
-                            </div>
-                          </div>
-                          <div className="btn-vist-phone">
-                            {c.isPinned ? (
-                              <button
-                                className="btn glo-btnc"
-                                onClick={() =>
-                                  window.open(
-                                    `${pinnedCommunitiesWebsties[c.name]}`,
-                                    "_blank"
-                                  )
-                                }
-                              >
-                                Visit platform
-                              </button>
-                            ) : (
-                              <Link to="/docker-setup" className="start" >
-                                <h3 className="start">Start community</h3>
-                              </Link>
-                            )}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="btn-wrap">
-                      {c.isPinned ? (
-                        <button
-                          className="btn glo-btnc"
-                          onClick={() =>
-                            window.open(
-                              `${pinnedCommunitiesWebsties[c.name]}`,
-                              "_blank"
-                            )
-                          }
-                        >
-                          Visit platform
-                        </button>
-                      ) : (
-                        <Link to="/docker-setup">Start your community</Link>
-                      )}
-                    </div>
-                  </div>
-                </div>
+                <CommunityList c={c} key={i} pinnedCommunitiesWebsties={pinnedCommunitiesWebsties} />
               ))}
             </div>
           </div>
@@ -247,3 +160,92 @@ const Communities = () => {
 };
 
 export default Communities;
+// {data.map((c, i) => (
+//   <div className="box-container " key={i}>
+//     <div className="box">
+//       <div className="box-wrap-left ">
+//         <div className="img-cover">
+//         <img
+//           className="pro-img"
+//           src={c.img}
+//           alt=""
+//         />
+//         </div>
+//         <div className="box-left">
+//           <Link className="title" to={`/community/hive-${c.id}`}>
+//             {c.title}
+//           </Link>
+//           <span className="about">{c.about}</span>
+//           <span className="about-phone">
+//             {c.about.split(" ").slice(0, 100).join(" ")}
+//           </span>
+//           <div className="admins-wrapper">
+//             <span>Admin:</span>
+//             <div className="admins">
+//               {c.Admin}
+//             </div>
+//           </div>
+//           <div className="community-info">
+//             <div className="info-left">
+//               <div className="center-items">
+//                 <span className="info-num">{c.member}</span>{" "}
+//                 <span className="info-icons">
+//                   <HiUsers size={14} />
+//                 </span>
+//               </div>
+//               <div className="center-items">
+//                 <span className="info-num">{c.post}</span>{" "}
+//                 <span className="info-icons">
+//                   <FaArrowUpRightDots  size={14}/>
+//                 </span>
+//               </div>
+//               <div className="center-items">
+//                 <span className="info-num">{c.member}</span>{" "}
+//                 <span className="info-icons">
+//                   <FaArrowUpShortWide size={14} />
+//                 </span>
+//               </div>
+//             </div>
+//             <div className="btn-vist-phone">
+//               {c.isPinned ? (
+//                 <button
+//                   className="btn glo-btnc"
+//                   onClick={() =>
+//                     window.open(
+//                       `${pinnedCommunitiesWebsties[c.name]}`,
+//                       "_blank"
+//                     )
+//                   }
+//                 >
+//                   Visit platform
+//                 </button>
+//               ) : (
+//                 <Link to="/docker-setup" className="start" >
+//                   <h3 className="start">Start community</h3>
+//                 </Link>
+//               )}
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+
+//       <div className="btn-wrap">
+//         {c.isPinned ? (
+//           <button
+//             className="btn glo-btnc"
+//             onClick={() =>
+//               window.open(
+//                 `${pinnedCommunitiesWebsties[c.name]}`,
+//                 "_blank"
+//               )
+//             }
+//           >
+//             Visit platform
+//           </button>
+//         ) : (
+//           <Link to="/docker-setup">Start your community</Link>
+//         )}
+//       </div>
+//     </div>
+//   </div>
+// ))}
