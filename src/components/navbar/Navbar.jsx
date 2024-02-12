@@ -49,7 +49,7 @@ const Navbar = ({ toggleSidebar }) => {
 
   return (
     <nav className="navbar">
-       <img src={spkLogo} className="logo" alt="" />
+       <img src={spkLogo} className="logos" alt="" />
         <ul className="links">
             <Link className="lists-1"  to="/"><li className="">Home</li></Link>
             <Link className="lists-1" to="/communities"><li className="">Explore </li></Link>
