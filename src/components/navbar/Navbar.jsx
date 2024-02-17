@@ -103,37 +103,6 @@ const Navbar = ({ toggleSidebar }) => {
         </div>
 
     </nav>
-
-
-
-
-
-    // <div className="navbar">
-    //   <div className="logo">
-    //     <Link to="/">
-    //       <img src={spkLogo} alt="SPK Logo" />
-    //     </Link>
-    //   </div>
-    //   <div className="nav-links">
-    //     <Link to="/communities">
-    //       {isSmallScreen ? "Explore" : "Explore Communities"}
-    //     </Link>
-    //     <Link to="/community-create">
-    //       {" "}
-    //       {isSmallScreen ? "Create" : "Create Community"}
-    //     </Link>
-    //     <Link to="/docker-setup">Breakaway</Link>
-    //     <Link to="/about">About</Link>
-
-    //     {!auth.isAuthenticated ? (
-    //       <Link to="/login">Login</Link>
-    //     ) : (
-    //       <button onClick={toggleSidebar} className="nav-links button">
-    //         <FaBars />
-    //       </button>
-    //     )}
-    //   </div>
-    // </div>
   );
 };
 

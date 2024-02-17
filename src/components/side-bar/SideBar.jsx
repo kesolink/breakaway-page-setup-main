@@ -9,6 +9,7 @@ import calculateUserReputation from "../../helpers/reputation";
 const SideBar = () => {
   const [userProfile, setUserProfile] = useState({});
   const { userData } = useSelector((state) => state.user);
+  console.log(userData)
   const dispatch = useDispatch();
   const logoutAndClear = () => (dispatch) => {
     dispatch(logout());
@@ -27,7 +28,9 @@ const SideBar = () => {
     } catch (error) {
       console.error("Error parsing JSON:", error);
     }
+    
   };
+  console.log(userProfile)
 
   return (
     <div className="sidebar">

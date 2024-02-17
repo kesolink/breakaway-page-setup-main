@@ -15,7 +15,6 @@ const Communities = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
   const [selectedOption, setSelectedOption] = useState("Rank");
-  const [gridView, setGridView] = useState(false);
 
   const pinnedCommunitiesWebsties = {
     "hive-109272": "https://hiverally.com",
@@ -112,15 +111,6 @@ const Communities = () => {
     <div className="communities-wrapper">
       <div className="hero-text">
         <h1>Tokenized Breakaway Communities</h1>
-        {/* <div className="search-wrapper">
-          <input
-            className="communities-search"
-            value={searchQuery}
-            type="text"
-            placeholder="Search community"
-            onChange={handleCommunitySearch}
-          />
-        </div> */}
       </div>
       <div className="community-section">
         {loading ? (
@@ -160,92 +150,3 @@ const Communities = () => {
 };
 
 export default Communities;
-// {data.map((c, i) => (
-//   <div className="box-container " key={i}>
-//     <div className="box">
-//       <div className="box-wrap-left ">
-//         <div className="img-cover">
-//         <img
-//           className="pro-img"
-//           src={c.img}
-//           alt=""
-//         />
-//         </div>
-//         <div className="box-left">
-//           <Link className="title" to={`/community/hive-${c.id}`}>
-//             {c.title}
-//           </Link>
-//           <span className="about">{c.about}</span>
-//           <span className="about-phone">
-//             {c.about.split(" ").slice(0, 100).join(" ")}
-//           </span>
-//           <div className="admins-wrapper">
-//             <span>Admin:</span>
-//             <div className="admins">
-//               {c.Admin}
-//             </div>
-//           </div>
-//           <div className="community-info">
-//             <div className="info-left">
-//               <div className="center-items">
-//                 <span className="info-num">{c.member}</span>{" "}
-//                 <span className="info-icons">
-//                   <HiUsers size={14} />
-//                 </span>
-//               </div>
-//               <div className="center-items">
-//                 <span className="info-num">{c.post}</span>{" "}
-//                 <span className="info-icons">
-//                   <FaArrowUpRightDots  size={14}/>
-//                 </span>
-//               </div>
-//               <div className="center-items">
-//                 <span className="info-num">{c.member}</span>{" "}
-//                 <span className="info-icons">
-//                   <FaArrowUpShortWide size={14} />
-//                 </span>
-//               </div>
-//             </div>
-//             <div className="btn-vist-phone">
-//               {c.isPinned ? (
-//                 <button
-//                   className="btn glo-btnc"
-//                   onClick={() =>
-//                     window.open(
-//                       `${pinnedCommunitiesWebsties[c.name]}`,
-//                       "_blank"
-//                     )
-//                   }
-//                 >
-//                   Visit platform
-//                 </button>
-//               ) : (
-//                 <Link to="/docker-setup" className="start" >
-//                   <h3 className="start">Start community</h3>
-//                 </Link>
-//               )}
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-
-//       <div className="btn-wrap">
-//         {c.isPinned ? (
-//           <button
-//             className="btn glo-btnc"
-//             onClick={() =>
-//               window.open(
-//                 `${pinnedCommunitiesWebsties[c.name]}`,
-//                 "_blank"
-//               )
-//             }
-//           >
-//             Visit platform
-//           </button>
-//         ) : (
-//           <Link to="/docker-setup">Start your community</Link>
-//         )}
-//       </div>
-//     </div>
-//   </div>
-// ))}

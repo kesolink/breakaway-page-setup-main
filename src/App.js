@@ -7,7 +7,6 @@ import SideBar from "./components/side-bar/SideBar";
 import CreateCommunity from "./pages/CreateCommunity";
 import Login from "./pages/Login";
 import Communities from "./pages/Communities";
-import Community from "./pages/Community";
 import DockerSetup from "./pages/DockerSetup";
 import PrivateRoute from "./private-routes/PrivateRoutes";
 import { useSelector } from "react-redux";
@@ -15,11 +14,11 @@ import { setUser } from "./redux/userSlice";
 import { useDispatch } from "react-redux";
 import { getAccount } from "./api/hive";
 import "./App.scss";
-// import Navmain from "./pages/Navmain";
-import Dashboard from "./pages/Dashboard";
 import Sidenav from "./components/dashboard-files/Sidenav";
 import Navmain from "./components/dashboard-files/Navmain";
 import Update from "./components/dashboard-files/Update";
+import Docker from "./pages/Docker";
+import Profilepage from "./pages/Profilepage";
 
 function App() {
   const { userData } = useSelector((state) => state.user);
@@ -60,15 +59,15 @@ function App() {
           <div className="main-box-wrap">
            <div className="app-container">
             <Routes>
-            {/* <Route path="/" element={<Dashboard /> } /> */}
             <Route path="/" element={<Communities />} />
             <Route path="/about" element={<LandingPage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/communities" element={<Communities />} />
-            {/* <Route path="/community" element={<PrivateRoute><Community /></PrivateRoute>} /> */}
             <Route path="/community-setup" element={<PrivateRoute><Setup /></PrivateRoute>} />
             <Route path="/community-create" element={<PrivateRoute><CreateCommunity /> </PrivateRoute> } />
             <Route path="/docker-setup" element={<DockerSetup />} />
+            <Route path="/docker" element={<Docker />} />
+            <Route path="/profile" element={<Profilepage />} />
             </Routes>
            </div>
            {shouldRenderSideBar && (<div className="update-wrap">
@@ -87,8 +86,8 @@ function App() {
 export default App;
 
 
-{/* {shouldRenderSideBar && isSidebarOpen && (
-          <div className="sidebar-container">
-            <SideBar />
-          </div>
-        )} */}
+// { {shouldRenderSideBar && isSidebarOpen && (
+//           <div className="sidebar-container">
+//             <SideBar />
+//           </div>
+//         )} }

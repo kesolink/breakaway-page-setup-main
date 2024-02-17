@@ -27,6 +27,8 @@ export default function Sidenav() {
           <Link to="/" className="link"><div className="li-wrap"><span><SiCompilerexplorer size={20} /></span><li>explore</li></div></Link>
           <Link to="/community-create" className="link"><div className="li-wrap"><span><CgCommunity size={20} /></span><li>Create Community</li></div></Link>
           <Link to="/docker-setup" className="link"><div className="li-wrap"><span><PiSlideshowBold size={20}/></span><li>Breakaway</li></div></Link>
+          <Link to="/docker" className="link"><div className="li-wrap"><span><PiSlideshowBold size={20}/></span><li>Docker</li></div></Link>
+
           
             
           </ul>
@@ -34,7 +36,7 @@ export default function Sidenav() {
         <div className=" account-wrap">
             <h4>Account</h4>
             <ul>
-            <div className="li-wrap"><span><CgProfile size={20} /></span><li>Profile</li></div>
+            <Link to="/profile" className="link"><div className="li-wrap"><span><CgProfile size={20} /></span><li>Profile</li></div></Link>
             <div className="li-wrap"><span><FaWallet /></span> <li>wallet</li></div>
             <div className="li-wrap"><span><TiPointOfInterest /></span><li>Breakaway Point</li></div>
             <div className="li-wrap"><span><MdOutlineSupportAgent size={20} /></span><li>Help&Support</li></div>
